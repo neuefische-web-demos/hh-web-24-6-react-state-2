@@ -1,10 +1,10 @@
-export default function SearchForm() {
-  const searchTerm = "";
-
+export default function SearchForm({ searchTerm, onSearch }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.log("submit");
+    const searchTermValue = event.target.elements.searchTerm.value;
+
+    onSearch(searchTermValue);
   }
 
   return (
