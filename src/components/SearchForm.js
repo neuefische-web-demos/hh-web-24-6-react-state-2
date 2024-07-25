@@ -1,17 +1,20 @@
-export default function SearchForm() {
-  const searchTerm = "";
-
+export default function SearchForm({ searchTerm, onSearch }) {
   function handleSubmit(event) {
     event.preventDefault();
-
-    console.log("submit");
   }
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="searchTerm">Search term:</label>
-        <input name="searchTerm" id="searchTerm" />
+        <input
+          name="searchTerm"
+          id="searchTerm"
+          value={searchTerm}
+          onChange={(event) => {
+            onSearch(event.target.value);
+          }}
+        />
         <button>
           <span role="img" aria-label="search icon">
             🔍
